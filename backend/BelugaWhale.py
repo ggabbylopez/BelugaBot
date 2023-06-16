@@ -1,7 +1,11 @@
 import json
+from fastapi import FastAPI
 from TeamsSender import SendMessage
 
-def lambda_handler(event, context):
+api = FastAPI()
+
+@api.post("/webhook/bitbucket")
+def bitbucket(event):
     update_type = ""
     author = ""
     repository = ""
